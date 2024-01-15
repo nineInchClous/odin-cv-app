@@ -1,31 +1,32 @@
 import './App.scss';
 import Accordion from './components/Accordion';
 import Input from './components/Input';
+import SimpleInput from './components/SimpleInput';
 import Form from './components/Form';
 
 function App() {
   return (
     <>
       <Accordion title="Personal Details">
-        <Input
+        <SimpleInput
           id="full-name"
           label="Full name"
           type="text"
           placeholder="First and last name"
         />
-        <Input
+        <SimpleInput
           id="email"
           label="Email"
           type="email"
           placeholder="example@mail.com"
         />
-        <Input
+        <SimpleInput
           id="phone"
           label="Phone number"
           type="tel"
           placeholder="555 555 5555"
         />
-        <Input
+        <SimpleInput
           id="address"
           label="Address"
           type="text"

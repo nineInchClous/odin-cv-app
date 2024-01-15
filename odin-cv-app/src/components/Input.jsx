@@ -1,5 +1,6 @@
-import { useState } from 'react';
 import '../styles/Input.scss';
+import { useState } from 'react';
+import { validateInput } from '../utils/formValidation';
 
 function Input({
   id,
@@ -34,6 +35,7 @@ function Input({
         minLength={minLength}
         maxLength={maxLength}
         data-name={label}
+        onBlur={(e) => validateInput(e.target)}
       />
       <span className="input-error"></span>
     </div>
