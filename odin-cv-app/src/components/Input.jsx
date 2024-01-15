@@ -1,10 +1,11 @@
 import { useState } from 'react';
+import '../styles/Input.scss';
 
 function Input({ id, label, type }) {
   const [value, setValue] = useState('');
 
   return (
-    <div>
+    <div className="input">
       <label htmlFor={id}>{label}</label>
       <input
         id={id}
