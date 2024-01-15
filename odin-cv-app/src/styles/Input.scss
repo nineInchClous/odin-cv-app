@@ -1,4 +1,6 @@
 $padding: 20px;
+$color-error: red;
+$border-color-success: green;
 
 .input {
   padding: 10px $padding;
@@ -15,16 +17,40 @@ $padding: 20px;
   label {
     font-size: 1.1rem;
     margin-bottom: 5px;
+
+    span {
+      color: red;
+      margin-left: 5px;
+    }
   }
+
   input {
     border-radius: 5px;
     border: 1px solid #333;
     padding: 5px 10px;
     font-size: 1rem;
 
+    &.invalid-input {
+      border-color: $color-error;
+    }
+    &:valid {
+      border-color: $border-color-success;
+    }
     &:focus {
       outline-width: thin;
       box-shadow: 0 0 5px rgba(51, 51, 51, 0.6);
+    }
+  }
+
+  .input-error {
+    margin-left: 5px;
+    color: $color-error;
+    font-style: italic;
+    opacity: 0;
+    transition: opacity 200ms ease-in-out;
+
+    &.show-form-error {
+      opacity: 1;
     }
   }
 }
