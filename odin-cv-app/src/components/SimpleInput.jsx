@@ -5,7 +5,7 @@ function SimpleInput({ id, label, type, placeholder }) {
   const [value, setValue] = useState('');
 
   return (
-    <div className="input">
+    <div className="simple-input">
       <label htmlFor={id}>{label}</label>
       <input
         id={id}
