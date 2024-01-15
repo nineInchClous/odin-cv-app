@@ -1,10 +1,30 @@
 import './App.scss';
 import Accordion from './components/Accordion';
-import Input from './components/Input';
 import SimpleInput from './components/SimpleInput';
-import Form from './components/Form';
+import EducationList from './components/EducationList';
+import { useState } from 'react';
+import EducationForm from './components/EducationForm';
 
 function App() {
+  const [educationItems, setEducationItems] = useState([
+    {
+      id: 1,
+      school: 'London City University',
+      degree: 'BTS',
+      startDate: '04/2018',
+      endDate: '02/2019',
+      location: '',
+    },
+    {
+      id: 2,
+      school: 'Hidden University',
+      degree: 'DUT',
+      startDate: '05/2018',
+      endDate: '03/2019',
+      location: 'London, UK',
+    },
+  ]);
+
   return (
     <>
       <Accordion title="Personal Details">
@@ -34,42 +54,10 @@ function App() {
         />
       </Accordion>
       <Accordion title="Education">
-        <Form>
-          <Input
-            id="school"
-            label="School"
-            type="text"
-            required={true}
-            placeholder="School or University name"
-          />
-          <Input
-            id="degree"
-            label="Degree"
-            type="text"
-            required={true}
-            placeholder="Degree or field of study"
-          />
-          <Input
-            id="start-date"
-            label="Start date"
-            type="text"
-            placeholder="04/2018"
-            required={true}
-          />
-          <Input
-            id="end-date"
-            label="End date"
-            type="text"
-            placeholder="02/2019 or present"
-            required={true}
-          />
-          <Input
-            id="location"
-            label="Location"
-            type="text"
-            placeholder="City, Country"
-          />
-        </Form>
+        <EducationList
+          listItems={educationItems}
+          setListItems={setEducationItems}
+        ></EducationList>
       </Accordion>
     </>
   );

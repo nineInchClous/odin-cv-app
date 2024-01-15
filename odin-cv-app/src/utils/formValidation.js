@@ -1,3 +1,8 @@
+/**
+ * Validate an input element. If it's invalid, display an error message
+ * @param {HTMLElement} pInput The input element to validate
+ * @returns True if the input is valid, otherwise false
+ */
 export function validateInput(pInput) {
   const errorSpan = pInput.nextElementSibling;
   errorSpan.classList.remove('show-form-error');
@@ -35,4 +40,24 @@ export function validateInput(pInput) {
   }
 
   return true;
+}
+
+/**
+ * Validate a form
+ * @param {Event} e The submit form event
+ * @returns True if the form is valid, otherwise false
+ */
+export function validateForm(e) {
+  e.preventDefault();
+
+  const inputs = e.target.querySelectorAll('input, select, textarea');
+  let validForm = true;
+
+  Object.values(inputs).forEach((input) => {
+    if (!validateInput(input)) {
+      validForm = false;
+    }
+  });
+
+  return validForm;
 }
