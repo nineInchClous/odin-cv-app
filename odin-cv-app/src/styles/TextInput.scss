@@ -24,7 +24,8 @@ $border-color-success: green;
     }
   }
 
-  input {
+  input,
+  textarea {
     border-radius: 5px;
     border: 1px solid #333;
     padding: 5px 10px;

@@ -2,29 +2,32 @@
 import '../styles/EditableList.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
-import EducationForm from './EducationForm';
+import ExperienceForm from './ExperienceForm';
 import ListItem from './ListItem';
 import { useState } from 'react';
 
-function EducationList({ listItems, setListItems }) {
+function ExperienceList({ listItems, setListItems }) {
   const [id, setId] = useState('');
-  const [school, setSchool] = useState('');
-  const [degree, setDegree] = useState('');
+  const [company, setCompany] = useState('');
+  const [position, setPosition] = useState('');
   const [startDate, setStartDate] = useState('');
   const [endDate, setEndDate] = useState('');
   const [location, setLocation] = useState('');
+  const [description, setDescription] = useState('');
   const formValues = {
     id,
-    school,
-    setSchool,
-    degree,
-    setDegree,
+    company,
+    setCompany,
+    position,
+    setPosition,
     startDate,
     setStartDate,
     endDate,
     setEndDate,
     location,
     setLocation,
+    description,
+    setDescription,
   };
 
   const [showForm, setShowForm] = useState(false);
@@ -32,17 +35,26 @@ function EducationList({ listItems, setListItems }) {
   function updateListItem() {
     const newListItems = listItems;
     if (id) {
-      newListItems[id] = { id, school, degree, startDate, endDate, location };
+      newListItems[id] = {
+        id,
+        company,
+        position,
+        startDate,
+        endDate,
+        location,
+        description,
+      };
       setListItems(listItems);
     } else {
       const newId = listItems.length;
       newListItems.push({
         id: newId,
-        school,
-        degree,
+        company,
+        position,
         startDate,
         endDate,
         location,
+        description,
       });
       setListItems(newListItems);
     }
@@ -50,21 +62,23 @@ function EducationList({ listItems, setListItems }) {
 
   function resetStates() {
     setId('');
-    setSchool('');
-    setDegree('');
+    setCompany('');
+    setPosition('');
     setStartDate('');
     setEndDate('');
     setLocation('');
+    setDescription('');
     setShowForm(false);
   }
 
   function fillForm(pItem) {
     setId(pItem.id);
-    setSchool(pItem.school);
-    setDegree(pItem.degree);
+    setCompany(pItem.company);
+    setPosition(pItem.position);
     setStartDate(pItem.startDate);
     setEndDate(pItem.endDate);
     setLocation(pItem.location);
+    setDescription(pItem.description);
     setShowForm(true);
   }
 
@@ -81,7 +95,7 @@ function EducationList({ listItems, setListItems }) {
             <ListItem
               key={item.id}
               item={item}
-              title={item.school}
+              title={item.company}
               fillForm={fillForm}
               eraseItem={eraseItem}
             />
@@ -101,14 +115,14 @@ function EducationList({ listItems, setListItems }) {
       )}
 
       {showForm && (
-        <EducationForm
+        <ExperienceForm
           formValues={formValues}
           updateList={updateListItem}
           resetStates={resetStates}
-        ></EducationForm>
+        />
       )}
     </div>
   );
 }
 
-export default EducationList;
+export default ExperienceList;
