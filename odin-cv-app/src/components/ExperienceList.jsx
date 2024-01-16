@@ -7,78 +7,55 @@ import ListItem from './ListItem';
 import { useState } from 'react';
 
 function ExperienceList({ listItems, setListItems }) {
-  const [id, setId] = useState('');
-  const [company, setCompany] = useState('');
-  const [position, setPosition] = useState('');
-  const [startDate, setStartDate] = useState('');
-  const [endDate, setEndDate] = useState('');
-  const [location, setLocation] = useState('');
-  const [description, setDescription] = useState('');
-  const formValues = {
-    id,
-    company,
-    setCompany,
-    position,
-    setPosition,
-    startDate,
-    setStartDate,
-    endDate,
-    setEndDate,
-    location,
-    setLocation,
-    description,
-    setDescription,
-  };
+  const [experience, setExperience] = useState({
+    id: '',
+    company: '',
+    position: '',
+    startDate: '',
+    endDate: '',
+    location: '',
+    description: '',
+  });
 
   const [showForm, setShowForm] = useState(false);
 
   function updateListItem() {
     const newListItems = listItems;
-    if (id) {
-      newListItems[id] = {
-        id,
-        company,
-        position,
-        startDate,
-        endDate,
-        location,
-        description,
-      };
+    if (experience.id) {
+      newListItems[experience.id] = experience;
       setListItems(listItems);
     } else {
-      const newId = listItems.length;
       newListItems.push({
-        id: newId,
-        company,
-        position,
-        startDate,
-        endDate,
-        location,
-        description,
+        ...experience,
+        id: listItems.length,
       });
       setListItems(newListItems);
     }
   }
 
   function resetStates() {
-    setId('');
-    setCompany('');
-    setPosition('');
-    setStartDate('');
-    setEndDate('');
-    setLocation('');
-    setDescription('');
+    setExperience({
+      id: '',
+      company: '',
+      position: '',
+      startDate: '',
+      endDate: '',
+      location: '',
+      description: '',
+    });
     setShowForm(false);
   }
 
   function fillForm(pItem) {
-    setId(pItem.id);
-    setCompany(pItem.company);
-    setPosition(pItem.position);
-    setStartDate(pItem.startDate);
-    setEndDate(pItem.endDate);
-    setLocation(pItem.location);
-    setDescription(pItem.description);
+    setExperience({
+      id: pItem.id,
+      company: pItem.company,
+      position: pItem.position,
+      startDate: pItem.startDate,
+      endDate: pItem.endDate,
+      location: pItem.location,
+      description: pItem.description,
+    });
     setShowForm(true);
   }
 
@@ -116,7 +93,8 @@ function ExperienceList({ listItems, setListItems }) {
 
       {showForm && (
         <ExperienceForm
-          formValues={formValues}
+          experience={experience}
+          setExperience={setExperience}
           updateList={updateListItem}
           resetStates={resetStates}
         />

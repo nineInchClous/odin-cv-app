@@ -4,7 +4,7 @@ import TextInput from './TextInput';
 import FormBtns from './FormBtns';
 import '../styles/form.scss';
 
-function EducationForm({ formValues, updateList, resetStates }) {
+function EducationForm({ education, setEducation, updateList, resetStates }) {
   return (
     <form
       noValidate
@@ -16,44 +16,50 @@ function EducationForm({ formValues, updateList, resetStates }) {
       }}
       onReset={resetStates}
     >
-      <input type="hidden" name="id" value={formValues.id} />
+      <input type="hidden" name="id" value={education.id} />
       <TextInput
         id="school"
         name="School"
-        value={formValues.school}
-        setValue={formValues.setSchool}
+        value={education.school}
+        setValue={(pSchool) => setEducation({ ...education, school: pSchool })}
         required={true}
         placeholder="School or University name"
       />
       <TextInput
         id="degree"
         name="Degree"
-        value={formValues.degree}
-        setValue={formValues.setDegree}
+        value={education.degree}
+        setValue={(pDegree) => setEducation({ ...education, degree: pDegree })}
         required={true}
         placeholder="Degree or field of study"
       />
       <TextInput
         id="start-date"
         name="Start date"
-        value={formValues.startDate}
-        setValue={formValues.setStartDate}
+        value={education.startDate}
+        setValue={(pStartDate) =>
+          setEducation({ ...education, startDate: pStartDate })
+        }
         required={true}
         placeholder="04/2018"
       />
       <TextInput
         id="end-date"
         name="End date"
-        value={formValues.endDate}
-        setValue={formValues.setEndDate}
+        value={education.endDate}
+        setValue={(pEndDate) =>
+          setEducation({ ...education, endDate: pEndDate })
+        }
         required={true}
         placeholder="02/2019 or present"
       />
       <TextInput
         id="location"
         name="Location"
-        value={formValues.location}
-        setValue={formValues.setLocation}
+        value={education.location}
+        setValue={(pLocation) =>
+          setEducation({ ...education, location: pLocation })
+        }
         required={false}
         placeholder="City, Country"
       />

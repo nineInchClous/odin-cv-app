@@ -5,7 +5,12 @@ import FormBtns from './FormBtns';
 import '../styles/form.scss';
 import TextArea from './TextArea';
 
-function ExperienceForm({ formValues, updateList, resetStates }) {
+function ExperienceForm({
+  experience,
+  setExperience,
+  updateList,
+  resetStates,
+}) {
   return (
     <form
       noValidate
@@ -17,52 +22,64 @@ function ExperienceForm({ formValues, updateList, resetStates }) {
       }}
       onReset={resetStates}
     >
-      <input type="hidden" name="id" value={formValues.id} />
+      <input type="hidden" name="id" value={experience.id} />
       <TextInput
         id="company"
         name="Company name"
-        value={formValues.company}
-        setValue={formValues.setCompany}
+        value={experience.company}
+        setValue={(pCompany) =>
+          setExperience({ ...experience, company: pCompany })
+        }
         required={true}
         placeholder="Microsoft"
       />
       <TextInput
         id="position"
         name="Position Title"
-        value={formValues.position}
-        setValue={formValues.setPosition}
+        value={experience.position}
+        setValue={(pPosition) =>
+          setExperience({ ...experience, position: pPosition })
+        }
         required={true}
         placeholder="Software engineer"
       />
       <TextInput
         id="start-date"
         name="Start date"
-        value={formValues.startDate}
-        setValue={formValues.setStartDate}
+        value={experience.startDate}
+        setValue={(pStartDate) =>
+          setExperience({ ...experience, startDate: pStartDate })
+        }
         required={true}
         placeholder="04/2018"
       />
       <TextInput
         id="end-date"
         name="End date"
-        value={formValues.endDate}
-        setValue={formValues.setEndDate}
+        value={experience.endDate}
+        setValue={(pEndDate) =>
+          setExperience({ ...experience, endDate: pEndDate })
+        }
         required={true}
         placeholder="02/2019 or present"
       />
       <TextInput
         id="location"
         name="Location"
-        value={formValues.location}
-        setValue={formValues.setLocation}
+        value={experience.location}
+        setValue={(pLocation) =>
+          setExperience({ ...experience, location: pLocation })
+        }
         required={false}
         placeholder="City, Country"
       />
       <TextArea
         id="description"
         name="Description"
-        value={formValues.description}
-        setValue={formValues.setDescription}
+        value={experience.description}
+        setValue={(pDescription) =>
+          setExperience({ ...experience, description: pDescription })
+        }
         required={false}
         placeholder="Description of your professional experience"
       />

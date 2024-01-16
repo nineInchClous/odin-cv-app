@@ -7,64 +7,52 @@ import ListItem from './ListItem';
 import { useState } from 'react';
 
 function EducationList({ listItems, setListItems }) {
-  const [id, setId] = useState('');
-  const [school, setSchool] = useState('');
-  const [degree, setDegree] = useState('');
-  const [startDate, setStartDate] = useState('');
-  const [endDate, setEndDate] = useState('');
-  const [location, setLocation] = useState('');
-  const formValues = {
-    id,
-    school,
-    setSchool,
-    degree,
-    setDegree,
-    startDate,
-    setStartDate,
-    endDate,
-    setEndDate,
-    location,
-    setLocation,
-  };
+  const [education, setEducation] = useState({
+    id: '',
+    school: '',
+    degree: '',
+    startDate: '',
+    endDate: '',
+    location: '',
+  });
 
   const [showForm, setShowForm] = useState(false);
 
   function updateListItem() {
     const newListItems = listItems;
-    if (id) {
-      newListItems[id] = { id, school, degree, startDate, endDate, location };
+    if (education.id) {
+      newListItems[education.id] = education;
       setListItems(listItems);
     } else {
-      const newId = listItems.length;
       newListItems.push({
-        id: newId,
-        school,
-        degree,
-        startDate,
-        endDate,
-        location,
+        ...education,
+        id: listItems.length,
       });
       setListItems(newListItems);
     }
   }
 
   function resetStates() {
-    setId('');
-    setSchool('');
-    setDegree('');
-    setStartDate('');
-    setEndDate('');
-    setLocation('');
+    setEducation({
+      id: '',
+      school: '',
+      degree: '',
+      startDate: '',
+      endDate: '',
+      location: '',
+    });
     setShowForm(false);
   }
 
   function fillForm(pItem) {
-    setId(pItem.id);
-    setSchool(pItem.school);
-    setDegree(pItem.degree);
-    setStartDate(pItem.startDate);
-    setEndDate(pItem.endDate);
-    setLocation(pItem.location);
+    setEducation({
+      id: pItem.id,
+      school: pItem.school,
+      degree: pItem.degree,
+      startDate: pItem.startDate,
+      endDate: pItem.endDate,
+      location: pItem.location,
+    });
     setShowForm(true);
   }
 
@@ -102,7 +90,8 @@ function EducationList({ listItems, setListItems }) {
 
       {showForm && (
         <EducationForm
-          formValues={formValues}
+          education={education}
+          setEducation={setEducation}
           updateList={updateListItem}
           resetStates={resetStates}
         ></EducationForm>
