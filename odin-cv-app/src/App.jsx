@@ -3,7 +3,6 @@ import Accordion from './components/Accordion';
 import SimpleInput from './components/SimpleInput';
 import EducationList from './components/EducationList';
 import { useState } from 'react';
-import EducationForm from './components/EducationForm';
 
 function App() {
   const [educationItems, setEducationItems] = useState([

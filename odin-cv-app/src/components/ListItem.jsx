@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import '../styles/ListItem.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPen, faTrash } from '@fortawesome/free-solid-svg-icons';

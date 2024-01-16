@@ -1,4 +1,5 @@
-import { validateForm, validateInput } from '../utils/formValidation';
+/* eslint-disable react/prop-types */
+import { validateForm } from '../utils/formValidation';
 import TextInput from './TextInput';
 import FormBtns from './FormBtns';
 import '../styles/form.scss';

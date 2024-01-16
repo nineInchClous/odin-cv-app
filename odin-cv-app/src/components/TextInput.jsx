@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import '../styles/TextInput.scss';
 import { validateInput } from '../utils/formValidation';
 
