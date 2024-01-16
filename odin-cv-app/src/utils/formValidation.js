@@ -50,7 +50,9 @@ export function validateInput(pInput) {
 export function validateForm(e) {
   e.preventDefault();
 
-  const inputs = e.target.querySelectorAll('input, select, textarea');
+  const inputs = e.target.querySelectorAll(
+    'input:not([type=hidden]), select, textarea'
+  );
   let validForm = true;
 
   Object.values(inputs).forEach((input) => {

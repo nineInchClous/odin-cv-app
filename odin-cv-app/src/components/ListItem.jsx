@@ -1,0 +1,31 @@
+import '../styles/ListItem.scss';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPen, faTrash } from '@fortawesome/free-solid-svg-icons';
+
+function ListItem({ item, title, fillForm, eraseItem }) {
+  return (
+    <div className="item">
+      <h2>{title}</h2>
+      <div className="item-btns">
+        <button
+          type="button"
+          onClick={() => {
+            fillForm(item);
+          }}
+        >
+          <FontAwesomeIcon icon={faPen}></FontAwesomeIcon>
+        </button>
+        <button
+          type="button"
+          onClick={() => {
+            eraseItem(item.id);
+          }}
+        >
+          <FontAwesomeIcon icon={faTrash}></FontAwesomeIcon>
+        </button>
+      </div>
+    </div>
+  );
+}
+
+export default ListItem;

@@ -8,7 +8,7 @@ import EducationForm from './components/EducationForm';
 function App() {
   const [educationItems, setEducationItems] = useState([
     {
-      id: 1,
+      id: 0,
       school: 'London City University',
       degree: 'BTS',
       startDate: '04/2018',
@@ -16,7 +16,7 @@ function App() {
       location: '',
     },
     {
-      id: 2,
+      id: 1,
       school: 'Hidden University',
       degree: 'DUT',
       startDate: '05/2018',

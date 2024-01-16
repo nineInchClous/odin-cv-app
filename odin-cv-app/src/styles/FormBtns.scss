@@ -1,0 +1,32 @@
+.form-btns {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 30px;
+
+  button {
+    font-size: 1rem;
+    padding: 10px 20px;
+    min-width: 100px;
+    border-radius: 5px;
+    cursor: pointer;
+    opacity: 0.8;
+    transition: opacity 150ms ease-in-out, border-color 150ms ease-in-out;
+    border: 1px solid transparent;
+
+    &:first-of-type {
+      margin-right: 20px;
+    }
+    &[type='submit'] {
+      background-color: #16a34a;
+      color: white;
+    }
+    &[type='reset'] {
+      background-color: whitesmoke;
+      color: #666;
+    }
+    &:hover {
+      opacity: 1;
+      border-color: #333;
+    }
+  }
+}

@@ -1,132 +1,63 @@
-import '../styles/form.scss';
 import { validateForm, validateInput } from '../utils/formValidation';
-import { useState } from 'react';
+import TextInput from './TextInput';
+import FormBtns from './FormBtns';
+import '../styles/form.scss';
 
-function EducationForm({
-  id,
-  setId,
-  school,
-  setSchool,
-  degree,
-  setDegree,
-  startDate,
-  setStartDate,
-  endDate,
-  setEndDate,
-  location,
-  setLocation,
-  setShowForm,
-}) {
+function EducationForm({ formValues, updateList, resetStates }) {
   return (
     <form
       noValidate
       onSubmit={(e) => {
         if (validateForm(e)) {
-          // Save in localstorage
+          updateList();
           e.target.reset();
         }
       }}
-      onReset={() => {
-        setId('');
-        setSchool('');
-        setDegree('');
-        setStartDate('');
-        setEndDate('');
-        setLocation('');
-        setShowForm(false);
-      }}
+      onReset={resetStates}
     >
-      <input type="hidden" name="id" value={id} />
-      <div className="input">
-        <label htmlFor="school">
-          School
-          <span>*</span>
-        </label>
-        <input
-          id="school"
-          type="text"
-          value={school}
-          placeholder="School or University name"
-          onChange={(e) => setSchool(e.target.value)}
-          required={true}
-          data-name="school"
-          onBlur={(e) => validateInput(e.target)}
-        />
-        <span className="input-error"></span>
-      </div>
-      <div className="input">
-        <label htmlFor="degree">
-          Degree
-          <span>*</span>
-        </label>
-        <input
-          id="degree"
-          type="text"
-          value={degree}
-          placeholder="Degree or field of study"
-          onChange={(e) => setDegree(e.target.value)}
-          required={true}
-          data-name="degree"
-          onBlur={(e) => validateInput(e.target)}
-        />
-        <span className="input-error"></span>
-      </div>
-      <div className="input">
-        <label htmlFor="start-date">
-          Start date
-          <span>*</span>
-        </label>
-        <input
-          id="start-date"
-          type="text"
-          value={startDate}
-          placeholder="04/2018"
-          onChange={(e) => setStartDate(e.target.value)}
-          required={true}
-          data-name="start date"
-          onBlur={(e) => validateInput(e.target)}
-        />
-        <span className="input-error"></span>
-      </div>
-      <div className="input">
-        <label htmlFor="end-date">
-          End date
-          <span>*</span>
-        </label>
-        <input
-          id="end-date"
-          type="text"
-          value={endDate}
-          placeholder="02/2019 or present"
-          onChange={(e) => setEndDate(e.target.value)}
-          required={true}
-          data-name="end date"
-          onBlur={(e) => validateInput(e.target)}
-        />
-        <span className="input-error"></span>
-      </div>
-      <div className="input">
-        <label htmlFor="location">Location</label>
-        <input
-          id="location"
-          type="text"
-          value={location}
-          placeholder="City, Country"
-          onChange={(e) => setLocation(e.target.value)}
-          data-name="location"
-          onBlur={(e) => validateInput(e.target)}
-        />
-        <span className="input-error"></span>
-      </div>
+      <input type="hidden" name="id" value={formValues.id} />
+      <TextInput
+        id="school"
+        name="School"
+        value={formValues.school}
+        setValue={formValues.setSchool}
+        required={true}
+        placeholder="School or University name"
+      />
+      <TextInput
+        id="degree"
+        name="Degree"
+        value={formValues.degree}
+        setValue={formValues.setDegree}
+        required={true}
+        placeholder="Degree or field of study"
+      />
+      <TextInput
+        id="start-date"
+        name="Start date"
+        value={formValues.startDate}
+        setValue={formValues.setStartDate}
+        required={true}
+        placeholder="04/2018"
+      />
+      <TextInput
+        id="end-date"
+        name="End date"
+        value={formValues.endDate}
+        setValue={formValues.setEndDate}
+        required={true}
+        placeholder="02/2019 or present"
+      />
+      <TextInput
+        id="location"
+        name="Location"
+        value={formValues.location}
+        setValue={formValues.setLocation}
+        required={false}
+        placeholder="City, Country"
+      />
 
-      <div className="form-btns">
-        <button type="reset" className="cancel-btn">
-          Cancel
-        </button>
-        <button type="submit" className="save-btn">
-          Save
-        </button>
-      </div>
+      <FormBtns />
     </form>
   );
 }

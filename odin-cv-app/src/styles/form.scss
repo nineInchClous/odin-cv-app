@@ -1,91 +1,13 @@
-$padding: 20px;
-$color-error: red;
-$border-color-success: green;
-
 form {
-  .form-btns {
-    display: flex;
-    justify-content: flex-end;
-    margin-top: 30px;
+  animation: showForm 200ms ease-in-out;
+}
 
-    button {
-      font-size: 1rem;
-      padding: 10px 20px;
-      min-width: 100px;
-      border-radius: 5px;
-      cursor: pointer;
-      opacity: 0.8;
-      transition: opacity 150ms ease-in-out, border-color 150ms ease-in-out;
-      border: 1px solid transparent;
-
-      &:first-of-type {
-        margin-right: 20px;
-      }
-      &[type='submit'] {
-        background-color: #16a34a;
-        color: white;
-      }
-      &[type='reset'] {
-        background-color: whitesmoke;
-        color: #666;
-      }
-      &:hover {
-        opacity: 1;
-        border-color: #333;
-      }
-    }
+@keyframes showForm {
+  from {
+    transform: translateY(-10px);
+    opacity: 0;
   }
-
-  .input {
-    padding: 10px 0;
-    display: flex;
-    flex-direction: column;
-
-    &:first-of-type {
-      padding-top: $padding;
-    }
-    &:last-of-type {
-      padding-bottom: $padding;
-    }
-
-    label {
-      font-size: 1.1rem;
-      margin-bottom: 5px;
-
-      span {
-        color: red;
-        margin-left: 5px;
-      }
-    }
-
-    input {
-      border-radius: 5px;
-      border: 1px solid #333;
-      padding: 5px 10px;
-      font-size: 1rem;
-
-      &.invalid-input {
-        border-color: $color-error;
-      }
-      &:valid {
-        border-color: $border-color-success;
-      }
-      &:focus {
-        outline-width: thin;
-        box-shadow: 0 0 5px rgba(51, 51, 51, 0.6);
-      }
-    }
-
-    .input-error {
-      margin-left: 5px;
-      color: $color-error;
-      font-style: italic;
-      opacity: 0;
-      transition: opacity 200ms ease-in-out;
-
-      &.show-form-error {
-        opacity: 1;
-      }
-    }
+  to {
+    opacity: 1;
   }
 }

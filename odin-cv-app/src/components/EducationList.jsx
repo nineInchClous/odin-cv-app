@@ -1,10 +1,10 @@
 import '../styles/EditableList.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPen, faTrash, faPlus } from '@fortawesome/free-solid-svg-icons';
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import EducationForm from './EducationForm';
+import ListItem from './ListItem';
 import { useState } from 'react';
 
-// get listItems from localStorage
 function EducationList({ listItems, setListItems }) {
   const [id, setId] = useState('');
   const [school, setSchool] = useState('');
@@ -12,42 +12,79 @@ function EducationList({ listItems, setListItems }) {
   const [startDate, setStartDate] = useState('');
   const [endDate, setEndDate] = useState('');
   const [location, setLocation] = useState('');
+  const formValues = {
+    id,
+    school,
+    setSchool,
+    degree,
+    setDegree,
+    startDate,
+    setStartDate,
+    endDate,
+    setEndDate,
+    location,
+    setLocation,
+  };
+
   const [showForm, setShowForm] = useState(false);
+
+  function updateListItem() {
+    const newListItems = listItems;
+    if (id) {
+      newListItems[id] = { id, school, degree, startDate, endDate, location };
+      setListItems(listItems);
+    } else {
+      const newId = listItems.length;
+      newListItems.push({
+        id: newId,
+        school,
+        degree,
+        startDate,
+        endDate,
+        location,
+      });
+      console.log(newListItems);
+      setListItems(newListItems);
+    }
+  }
+
+  function resetStates() {
+    setId('');
+    setSchool('');
+    setDegree('');
+    setStartDate('');
+    setEndDate('');
+    setLocation('');
+    setShowForm(false);
+  }
+
+  function fillForm(pItem) {
+    setId(pItem.id);
+    setSchool(pItem.school);
+    setDegree(pItem.degree);
+    setStartDate(pItem.startDate);
+    setEndDate(pItem.endDate);
+    setLocation(pItem.location);
+    setShowForm(true);
+  }
+
+  function eraseItem(pId) {
+    setListItems(listItems.filter((currItem) => pId !== currItem.id));
+    resetStates();
+  }
 
   return (
     <div className="editable-list">
       <div className="items">
         {listItems.map((item) => {
           return (
-            <div className="item" key={item.id}>
-              <h2>{item.school}</h2>
-              <div className="item-btns">
-                <button
-                  type="button"
-                  onClick={() => {
-                    setId(item.id);
-                    setSchool(item.school);
-                    setDegree(item.degree);
-                    setStartDate(item.startDate);
-                    setEndDate(item.endDate);
-                    setLocation(item.location);
-                    setShowForm(true);
-                  }}
-                >
-                  <FontAwesomeIcon icon={faPen}></FontAwesomeIcon>
-                </button>
-                <button
-                  type="button"
-                  onClick={() =>
-                    setListItems(
-                      listItems.filter((currItem) => item.id !== currItem.id)
-                    )
-                  }
-                >
-                  <FontAwesomeIcon icon={faTrash}></FontAwesomeIcon>
-                </button>
-              </div>
-            </div>
+            <ListItem
+              key={item.id}
+              item={item}
+              title={item.school}
+              fillForm={fillForm}
+              eraseItem={eraseItem}
+            />
           );
         })}
       </div>
@@ -65,18 +102,9 @@ function EducationList({ listItems, setListItems }) {
 
       {showForm && (
         <EducationForm
-          id={id}
-          school={school}
-          setSchool={setSchool}
-          degree={degree}
-          setDegree={setDegree}
-          startDate={startDate}
-          setStartDate={setStartDate}
-          endDate={endDate}
-          setEndDate={setEndDate}
-          location={location}
-          setLocation={setLocation}
-          setShowForm={setShowForm}
+          formValues={formValues}
+          updateList={updateListItem}
+          resetStates={resetStates}
         ></EducationForm>
       )}
     </div>
