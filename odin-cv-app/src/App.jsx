@@ -1,9 +1,9 @@
 import './App.scss';
 import Accordion from './components/Accordion';
-import SimpleInput from './components/SimpleInput';
-import EducationList from './components/EducationList';
+import SimpleInput from './components/form/SimpleInput';
+import EducationList from './components/education/EducationList';
 import { useState } from 'react';
-import ExperienceList from './components/ExperienceList';
+import ExperienceList from './components/experience/ExperienceList';
 
 function App() {
   const [educationItems, setEducationItems] = useState([

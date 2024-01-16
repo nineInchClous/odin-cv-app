@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import '../styles/SimpleInput.scss';
+import '../../styles/form/SimpleInput.scss';
 import { useState } from 'react';
 
 function SimpleInput({ id, label, type, placeholder }) {

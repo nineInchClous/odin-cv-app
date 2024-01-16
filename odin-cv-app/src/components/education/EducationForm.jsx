@@ -1,8 +1,8 @@
 /* eslint-disable react/prop-types */
-import { validateForm } from '../utils/formValidation';
-import TextInput from './TextInput';
-import FormBtns from './FormBtns';
-import '../styles/form.scss';
+import { validateForm } from '../../utils/formValidation';
+import TextInput from '../form/TextInput';
+import FormBtns from '../form/FormBtns';
+import '../../styles/form/form.scss';
 
 function EducationForm({ education, setEducation, updateList, resetStates }) {
   return (

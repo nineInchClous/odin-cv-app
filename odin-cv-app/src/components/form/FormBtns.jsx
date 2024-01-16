@@ -1,4 +1,4 @@
-import '../styles/FormBtns.scss';
+import '../../styles/form/FormBtns.scss';
 
 function FormBtns() {
   return (

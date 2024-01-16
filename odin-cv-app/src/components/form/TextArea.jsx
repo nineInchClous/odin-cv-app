@@ -1,27 +1,27 @@
 /* eslint-disable react/prop-types */
-import '../styles/TextInput.scss';
-import { validateInput } from '../utils/formValidation';
+import '../../styles/form/TextInput.scss';
+import { validateInput } from '../../utils/formValidation';
 
-function TextInput({ id, name, value, setValue, required, placeholder }) {
+function TextArea({ id, name, value, setValue, required, placeholder }) {
   return (
     <div className="input">
       <label htmlFor={id}>
         {name}
         {required && <span>*</span>}
       </label>
-      <input
+      <textarea
         id={id}
         name={name}
-        type="text"
         value={value}
         placeholder={placeholder}
         onChange={(e) => setValue(e.target.value)}
         required={required}
         onBlur={(e) => validateInput(e.target)}
+        rows={4}
       />
       <span className="input-error"></span>
     </div>
   );
 }
 
-export default TextInput;
+export default TextArea;

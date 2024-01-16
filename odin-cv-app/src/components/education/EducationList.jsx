@@ -1,32 +1,31 @@
 /* eslint-disable react/prop-types */
-import '../styles/EditableList.scss';
+import '../../styles/EditableList.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
-import ExperienceForm from './ExperienceForm';
-import ListItem from './ListItem';
+import EducationForm from './EducationForm';
+import ListItem from '../ListItem';
 import { useState } from 'react';
 
-function ExperienceList({ listItems, setListItems }) {
-  const [experience, setExperience] = useState({
+function EducationList({ listItems, setListItems }) {
+  const [education, setEducation] = useState({
     id: '',
-    company: '',
-    position: '',
+    school: '',
+    degree: '',
     startDate: '',
     endDate: '',
     location: '',
-    description: '',
   });
 
   const [showForm, setShowForm] = useState(false);
 
   function updateListItem() {
     const newListItems = listItems;
-    if (experience.id) {
-      newListItems[experience.id] = experience;
+    if (education.id) {
+      newListItems[education.id] = education;
       setListItems(listItems);
     } else {
       newListItems.push({
-        ...experience,
+        ...education,
         id: listItems.length,
       });
       setListItems(newListItems);
@@ -34,27 +33,25 @@ function ExperienceList({ listItems, setListItems }) {
   }
 
   function resetStates() {
-    setExperience({
+    setEducation({
       id: '',
-      company: '',
-      position: '',
+      school: '',
+      degree: '',
       startDate: '',
       endDate: '',
       location: '',
-      description: '',
     });
     setShowForm(false);
   }
 
   function fillForm(pItem) {
-    setExperience({
+    setEducation({
       id: pItem.id,
-      company: pItem.company,
-      position: pItem.position,
+      school: pItem.school,
+      degree: pItem.degree,
       startDate: pItem.startDate,
       endDate: pItem.endDate,
       location: pItem.location,
-      description: pItem.description,
     });
     setShowForm(true);
   }
@@ -72,7 +69,7 @@ function ExperienceList({ listItems, setListItems }) {
             <ListItem
               key={item.id}
               item={item}
-              title={item.company}
+              title={item.school}
               fillForm={fillForm}
               eraseItem={eraseItem}
             />
@@ -92,15 +89,15 @@ function ExperienceList({ listItems, setListItems }) {
       )}
 
       {showForm && (
-        <ExperienceForm
-          experience={experience}
-          setExperience={setExperience}
+        <EducationForm
+          education={education}
+          setEducation={setEducation}
           updateList={updateListItem}
           resetStates={resetStates}
-        />
+        ></EducationForm>
       )}
     </div>
   );
 }
 
-export default ExperienceList;
+export default EducationList;

@@ -1,9 +1,9 @@
 /* eslint-disable react/prop-types */
-import { validateForm } from '../utils/formValidation';
-import TextInput from './TextInput';
-import FormBtns from './FormBtns';
-import '../styles/form.scss';
-import TextArea from './TextArea';
+import { validateForm } from '../../utils/formValidation';
+import TextInput from '../form/TextInput';
+import FormBtns from '../form/FormBtns';
+import '../../styles/form/form.scss';
+import TextArea from '../form/TextArea';
 
 function ExperienceForm({
   experience,
