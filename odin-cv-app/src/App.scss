@@ -4,3 +4,16 @@ body {
   font-family: 'Open Sans', sans-serif;
   box-sizing: border-box;
 }
+
+#root {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+aside {
+  max-width: 500px;
+}
+
+section {
+  min-width: 500px;
+}

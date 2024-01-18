@@ -4,8 +4,15 @@ import SimpleInput from './components/form/SimpleInput';
 import EducationList from './components/education/EducationList';
 import { useState } from 'react';
 import ExperienceList from './components/experience/ExperienceList';
+import CV from './components/CV';
 
 function App() {
+  const [personalInfos, setPersonalInfos] = useState({
+    fullName: '',
+    email: '',
+    phone: '',
+    address: '',
+  });
   const [educationItems, setEducationItems] = useState([
     {
       id: 0,
@@ -49,44 +56,69 @@ function App() {
 
   return (
     <>
-      <Accordion title="Personal Details">
-        <SimpleInput
-          id="full-name"
-          label="Full name"
-          type="text"
-          placeholder="First and last name"
+      <aside>
+        <Accordion title="Personal Details">
+          <SimpleInput
+            id="full-name"
+            value={personalInfos.fullName}
+            setValue={(pFullName) =>
+              setPersonalInfos({ ...personalInfos, fullName: pFullName })
+            }
+            label="Full name"
+            type="text"
+            placeholder="First and last name"
+          />
+          <SimpleInput
+            id="email"
+            value={personalInfos.email}
+            setValue={(pEmail) =>
+              setPersonalInfos({ ...personalInfos, email: pEmail })
+            }
+            label="Email"
+            type="email"
+            placeholder="example@mail.com"
+          />
+          <SimpleInput
+            id="phone"
+            value={personalInfos.phone}
+            setValue={(pPhone) =>
+              setPersonalInfos({ ...personalInfos, phone: pPhone })
+            }
+            label="Phone number"
+            type="tel"
+            placeholder="555 555 5555"
+          />
+          <SimpleInput
+            id="address"
+            value={personalInfos.address}
+            setValue={(pAddress) =>
+              setPersonalInfos({ ...personalInfos, address: pAddress })
+            }
+            label="Address"
+            type="text"
+            placeholder="City, Country"
+          />
+        </Accordion>
+        <Accordion title="Education">
+          <EducationList
+            listItems={educationItems}
+            setListItems={setEducationItems}
+          />
+        </Accordion>
+        <Accordion title="Experience">
+          <ExperienceList
+            listItems={experienceItems}
+            setListItems={setExperienceItems}
+          />
+        </Accordion>
+      </aside>
+      <section className="cv">
+        <CV
+          personalInfos={personalInfos}
+          educationItems={educationItems}
+          experienceItems={experienceItems}
         />
-        <SimpleInput
-          id="email"
-          label="Email"
-          type="email"
-          placeholder="example@mail.com"
-        />
-        <SimpleInput
-          id="phone"
-          label="Phone number"
-          type="tel"
-          placeholder="555 555 5555"
-        />
-        <SimpleInput
-          id="address"
-          label="Address"
-          type="text"
-          placeholder="City, Country"
-        />
-      </Accordion>
-      <Accordion title="Education">
-        <EducationList
-          listItems={educationItems}
-          setListItems={setEducationItems}
-        />
-      </Accordion>
-      <Accordion title="Experience">
-        <ExperienceList
-          listItems={experienceItems}
-          setListItems={setExperienceItems}
-        />
-      </Accordion>
+      </section>
     </>
   );
 }
