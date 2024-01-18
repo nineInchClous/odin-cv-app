@@ -6,6 +6,7 @@ import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 function handleClick(e) {
   e.target.nextSibling.classList.toggle('open');
   e.target.lastChild.firstChild.classList.toggle('open');
+  e.target.blur();
 }
 
 function Accordion({ title, children }) {
