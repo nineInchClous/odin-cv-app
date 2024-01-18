@@ -8,10 +8,10 @@ import CV from './components/CV';
 
 function App() {
   const [personalInfos, setPersonalInfos] = useState({
-    fullName: '',
-    email: '',
-    phone: '',
-    address: '',
+    fullName: 'John Doe',
+    email: 'johndoe@mail.com',
+    phone: '555-555-5555',
+    address: '123 Avenue Doe, London, UK',
   });
   const [educationItems, setEducationItems] = useState([
     {
@@ -112,13 +112,11 @@ function App() {
           />
         </Accordion>
       </aside>
-      <section className="cv">
-        <CV
-          personalInfos={personalInfos}
-          educationItems={educationItems}
-          experienceItems={experienceItems}
-        />
-      </section>
+      <CV
+        personalInfos={personalInfos}
+        educationItems={educationItems}
+        experienceItems={experienceItems}
+      />
     </>
   );
 }

@@ -38,7 +38,7 @@ function CV({ personalInfos, educationItems, experienceItems }) {
                 <p>{educationItem.location}</p>
               </div>
               <div className="school">
-                <h2>{educationItem.school}</h2>
+                <h3>{educationItem.school}</h3>
                 <p>{educationItem.degree}</p>
               </div>
             </div>
@@ -57,7 +57,7 @@ function CV({ personalInfos, educationItems, experienceItems }) {
                 <p>{experienceItem.location}</p>
               </div>
               <div className="job">
-                <h2>{experienceItem.company}</h2>
+                <h3>{experienceItem.company}</h3>
                 <p>{experienceItem.position}</p>
                 <p>{experienceItem.description}</p>
               </div>
