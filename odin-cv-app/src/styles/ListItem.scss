@@ -3,6 +3,11 @@
   justify-content: space-between;
   align-items: center;
 
+  h2 {
+    font-size: 1.2rem;
+    max-width: 70%;
+  }
+
   .item-btns {
     button {
       border: none;
@@ -24,5 +29,11 @@
         color: #b91c1c;
       }
     }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .item .item-btns button:first-of-type {
+    margin-right: 5px;
   }
 }
