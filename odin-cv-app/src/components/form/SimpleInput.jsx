@@ -1,10 +1,7 @@
 /* eslint-disable react/prop-types */
 import '../../styles/form/SimpleInput.scss';
-import { useState } from 'react';
 
-function SimpleInput({ id, label, type, placeholder }) {
-  const [value, setValue] = useState('');
-
+function SimpleInput({ id, value, setValue, label, type, placeholder }) {
   return (
     <div className="simple-input">
       <label htmlFor={id}>{label}</label>
@@ -14,6 +11,7 @@ function SimpleInput({ id, label, type, placeholder }) {
         value={value}
         placeholder={placeholder}
         onChange={(e) => setValue(e.target.value)}
+        autoComplete="off"
       />
     </div>
   );
