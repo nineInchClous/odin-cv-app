@@ -1,15 +1,17 @@
 $outer-radius: 10px;
 $inner-radius: 5px;
 $border-color: #333;
-$header-background-color: #eee;
+$header-background-color: white;
 $content-background-color: white;
 $padding: 20px;
 $shadow: 0px 1px 1px rgba(51, 51, 51, 0.6);
 
 .accordion {
   border: 1px solid #333;
-  border-radius: $outer-radius;
+  border-bottom-right-radius: $outer-radius;
+  border-top-left-radius: $outer-radius;
   margin: 20px 0;
+  box-shadow: 0 0 5px rgba(51, 51, 51, 0.2);
 
   .accordion-header {
     background-color: $header-background-color;
@@ -19,10 +21,16 @@ $shadow: 0px 1px 1px rgba(51, 51, 51, 0.6);
     align-items: center;
     padding: $padding;
     width: 100%;
-    border-radius: $outer-radius;
+    border-bottom-right-radius: $outer-radius;
+    border-top-left-radius: $outer-radius;
     border: none;
     cursor: pointer;
-    transition: border-color 300ms ease-in-out;
+    transition: border-color 300ms ease-in-out,
+      border-bottom-right-radius 200ms ease-in-out;
+
+    &.open {
+      border-bottom-right-radius: 0;
+    }
 
     &:hover,
     &:focus {
@@ -66,14 +74,18 @@ $shadow: 0px 1px 1px rgba(51, 51, 51, 0.6);
     transform: translateY(-20px);
     transform-origin: top;
     transition: transform 150ms ease-in-out, opacity 150ms ease-in-out,
-      max-height 150ms ease-in, visibility 150ms;
+      max-height 150ms ease-in, visibility 150ms, border-color 150ms ease-in-out;
     visibility: hidden;
+    background-color: white;
+    border-bottom-right-radius: $outer-radius;
+    border-top: 1px solid transparent;
 
     &.open {
       transform: translateY(0);
       opacity: 1;
       max-height: 100vh;
       visibility: visible;
+      border-color: #333;
     }
   }
 }

@@ -15,13 +15,15 @@ $padding: 20px;
   label {
     font-size: 1.1rem;
     margin-bottom: 5px;
+    font-weight: 600;
   }
 
   input {
     border-radius: 5px;
-    border: 1px solid #333;
-    padding: 5px 10px;
+    border: none;
+    padding: 10px;
     font-size: 1rem;
+    background-color: whitesmoke;
 
     &:focus {
       outline-width: thin;

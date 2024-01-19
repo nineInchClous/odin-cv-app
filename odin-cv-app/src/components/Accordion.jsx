@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 
 function handleClick(e) {
+  e.target.classList.toggle('open');
   e.target.nextSibling.classList.toggle('open');
   e.target.lastChild.firstChild.classList.toggle('open');
   e.target.blur();
