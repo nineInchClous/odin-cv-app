@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+import '../styles/CV.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faEnvelope,
@@ -6,10 +7,10 @@ import {
   faLocationDot,
 } from '@fortawesome/free-solid-svg-icons';
 
-function CV({ personalInfos, educationItems, experienceItems }) {
+function CV({ personalInfos, educationItems, experienceItems, cvStyle }) {
   return (
     <div className="cv">
-      <section className="personal">
+      <section className="personal" style={{ backgroundColor: cvStyle.color }}>
         <h1>{personalInfos.fullName}</h1>
         <div className="contact">
           <p>
@@ -27,7 +28,7 @@ function CV({ personalInfos, educationItems, experienceItems }) {
         </div>
       </section>
       <section className="education">
-        <h2>Education</h2>
+        <h2 style={{ color: cvStyle.color }}>Education</h2>
         {educationItems.map((educationItem) => {
           return (
             <div className="education-item" key={educationItem.id}>
@@ -46,7 +47,7 @@ function CV({ personalInfos, educationItems, experienceItems }) {
         })}
       </section>
       <section className="experience">
-        <h2>Professional Experience</h2>
+        <h2 style={{ color: cvStyle.color }}>Professional Experience</h2>
         {experienceItems.map((experienceItem) => {
           return (
             <div className="experience-item" key={experienceItem.key}>

@@ -5,6 +5,7 @@ import EducationList from './components/education/EducationList';
 import { useState } from 'react';
 import ExperienceList from './components/experience/ExperienceList';
 import CV from './components/CV';
+import ColorInput from './components/form/ColorInput';
 
 function App() {
   const [personalInfos, setPersonalInfos] = useState({
@@ -53,6 +54,9 @@ function App() {
         'Supported senior researchers on accessibility standards for the open web. Created and usability tested wireframes and prototypes. Produced interactive documentation for quick onboarding of new researchers.',
     },
   ]);
+  const [cvStyle, setCvStyle] = useState({
+    color: '#0c4a6e',
+  });
 
   return (
     <>
@@ -111,11 +115,20 @@ function App() {
             setListItems={setExperienceItems}
           />
         </Accordion>
+        <Accordion title="Style">
+          <ColorInput
+            id="accent-color"
+            title="Accent color"
+            value={cvStyle.color}
+            setValue={(pColor) => setCvStyle({ ...cvStyle, color: pColor })}
+          />
+        </Accordion>
       </aside>
       <CV
         personalInfos={personalInfos}
         educationItems={educationItems}
         experienceItems={experienceItems}
+        cvStyle={cvStyle}
       />
     </>
   );

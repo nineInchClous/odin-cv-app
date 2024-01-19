@@ -1,0 +1,73 @@
+.cv {
+  max-width: 800px;
+  min-width: 600px;
+  flex-basis: 0;
+  flex-shrink: 1;
+  flex-grow: 1;
+  min-height: 95vh;
+  box-shadow: 0px 1px 3px rgba(51, 51, 51, 0.6);
+
+  .personal {
+    background-color: #0c4a6e;
+    color: whitesmoke;
+    padding: 40px 20px;
+    margin-bottom: 40px;
+
+    h1 {
+      font-size: 2rem;
+      text-align: center;
+      margin: 0;
+      margin-bottom: 20px;
+    }
+
+    .contact {
+      display: flex;
+      justify-content: center;
+
+      p {
+        margin: 0 20px;
+
+        svg {
+          margin-right: 10px;
+        }
+      }
+    }
+  }
+
+  section:not(.personal) {
+    padding: 0 70px;
+
+    h2 {
+      background-color: #eee;
+      color: #0c4a6e;
+      text-align: center;
+      border-radius: 5px;
+      margin-top: 40px;
+    }
+
+    h3 {
+      margin: 0;
+    }
+
+    .education-item,
+    .experience-item {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 20px;
+
+      p {
+        margin: 2px 0;
+      }
+    }
+
+    .time-location {
+      flex-basis: 150px;
+      flex-shrink: 0;
+      margin-right: 20px;
+
+      p {
+        margin: 2px 0 5px 0;
+      }
+    }
+  }
+}
