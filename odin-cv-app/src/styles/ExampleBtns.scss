@@ -1,0 +1,28 @@
+.example-btns {
+  text-align: center;
+  .load-example,
+  .clear-example {
+    font-size: 1rem;
+    padding: 10px 20px;
+    min-width: 100px;
+    border-radius: 5px;
+    cursor: pointer;
+    opacity: 0.8;
+    transition: opacity 150ms ease-in-out, border-color 150ms ease-in-out;
+    border: 1px solid transparent;
+
+    &:hover {
+      opacity: 1;
+      border-color: #333;
+    }
+  }
+  .load-example {
+    background-color: #16a34a;
+    color: white;
+    margin-right: 20px;
+  }
+  .clear-example {
+    background-color: whitesmoke;
+    color: #666;
+  }
+}

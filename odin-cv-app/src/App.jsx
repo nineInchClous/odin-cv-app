@@ -6,54 +6,12 @@ import { useState } from 'react';
 import ExperienceList from './components/experience/ExperienceList';
 import CV from './components/CV';
 import ColorInput from './components/form/ColorInput';
+import ExampleBtns from './components/ExampleBtns';
 
 function App() {
-  const [personalInfos, setPersonalInfos] = useState({
-    fullName: 'John Doe',
-    email: 'johndoe@mail.com',
-    phone: '555-555-5555',
-    address: '123 Avenue Doe, London, UK',
-  });
-  const [educationItems, setEducationItems] = useState([
-    {
-      id: 0,
-      school: 'London City University',
-      degree: 'BTS',
-      startDate: '04/2018',
-      endDate: '02/2019',
-      location: '',
-    },
-    {
-      id: 1,
-      school: 'Hidden University',
-      degree: 'DUT',
-      startDate: '05/2018',
-      endDate: '03/2019',
-      location: 'London, UK',
-    },
-  ]);
-  const [experienceItems, setExperienceItems] = useState([
-    {
-      id: 0,
-      company: 'Umbrella Inc.',
-      position: 'UX & UI Designer',
-      startDate: '04/2018',
-      endDate: '02/2019',
-      location: 'New York City, US',
-      description:
-        'Designed and prototyped user interface patterns for various clients in various industries, ranging from self-service apps within the telecommunications-sector to mobile games for IOS and Android',
-    },
-    {
-      id: 1,
-      company: 'Black Mesa Labs',
-      position: 'UX Research Assistant',
-      startDate: '05/2018',
-      endDate: '03/2019',
-      location: 'Berlin, Germany',
-      description:
-        'Supported senior researchers on accessibility standards for the open web. Created and usability tested wireframes and prototypes. Produced interactive documentation for quick onboarding of new researchers.',
-    },
-  ]);
+  const [personalInfos, setPersonalInfos] = useState({});
+  const [educationItems, setEducationItems] = useState([]);
+  const [experienceItems, setExperienceItems] = useState([]);
   const [cvStyle, setCvStyle] = useState({
     color: '#0c4a6e',
   });
@@ -65,6 +23,11 @@ function App() {
       </header>
       <main>
         <aside>
+          <ExampleBtns
+            setPersonalInfos={setPersonalInfos}
+            setEducationItems={setEducationItems}
+            setExperienceItems={setExperienceItems}
+          />
           <Accordion title="Personal Details">
             <SimpleInput
               id="full-name"
