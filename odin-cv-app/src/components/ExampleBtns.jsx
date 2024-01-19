@@ -70,7 +70,12 @@ function ExampleBtns({
         type="button"
         className="clear-example"
         onClick={() => {
-          setPersonalInfos({});
+          setPersonalInfos({
+            fullName: '',
+            email: '',
+            phone: '',
+            address: '',
+          });
           setEducationItems([]);
           setExperienceItems([]);
         }}

@@ -15,6 +15,7 @@ function EducationForm({ education, setEducation, updateList, resetStates }) {
         }
       }}
       onReset={resetStates}
+      autoComplete="off"
     >
       <input type="hidden" name="id" value={education.id} />
       <TextInput

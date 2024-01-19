@@ -20,10 +20,10 @@ function ExperienceList({ listItems, setListItems }) {
   const [showForm, setShowForm] = useState(false);
 
   function updateListItem() {
-    const newListItems = listItems;
-    if (experience.id) {
+    const newListItems = [...listItems];
+    if (experience.id !== '') {
       newListItems[experience.id] = experience;
-      setListItems(listItems);
+      setListItems(newListItems);
     } else {
       newListItems.push({
         ...experience,

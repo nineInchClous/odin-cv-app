@@ -21,6 +21,7 @@ function ExperienceForm({
         }
       }}
       onReset={resetStates}
+      autoComplete="off"
     >
       <input type="hidden" name="id" value={experience.id} />
       <TextInput

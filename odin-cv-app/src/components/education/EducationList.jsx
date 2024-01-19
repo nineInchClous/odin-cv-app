@@ -19,10 +19,10 @@ function EducationList({ listItems, setListItems }) {
   const [showForm, setShowForm] = useState(false);
 
   function updateListItem() {
-    const newListItems = listItems;
-    if (education.id) {
+    const newListItems = [...listItems];
+    if (education.id !== '') {
       newListItems[education.id] = education;
-      setListItems(listItems);
+      setListItems(newListItems);
     } else {
       newListItems.push({
         ...education,
