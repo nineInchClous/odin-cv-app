@@ -5,7 +5,10 @@ body {
   box-sizing: border-box;
   margin: 0;
   background-color: #eee;
+  -webkit-print-color-adjust: exact !important;
+  print-color-adjust: exact !important;
 }
+
 header,
 footer {
   background-color: #0c4a6e;
@@ -44,5 +47,41 @@ footer {
 
   a {
     color: whitesmoke;
+  }
+}
+
+.print {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+
+  .print-btn {
+    font-size: 1.3rem;
+    padding: 10px 20px;
+    min-width: 100px;
+    border-radius: 5px;
+    cursor: pointer;
+    opacity: 0.8;
+    transition: opacity 150ms ease-in-out, border-color 150ms ease-in-out;
+    border: 1px solid transparent;
+    background-color: #0c4a6e;
+    color: white;
+
+    &:hover {
+      opacity: 1;
+      border-color: #333;
+    }
+  }
+}
+
+@media print {
+  header,
+  aside,
+  footer {
+    display: none;
+  }
+
+  .personal {
+    background-color: #0c4a6e;
   }
 }

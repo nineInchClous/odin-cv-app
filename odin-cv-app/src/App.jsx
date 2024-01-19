@@ -90,6 +90,17 @@ function App() {
               setValue={(pColor) => setCvStyle({ ...cvStyle, color: pColor })}
             />
           </Accordion>
+          <div className="print">
+            <button
+              className="print-btn"
+              type="button"
+              onClick={() => {
+                window.print();
+              }}
+            >
+              Print
+            </button>
+          </div>
         </aside>
 
         <CV
