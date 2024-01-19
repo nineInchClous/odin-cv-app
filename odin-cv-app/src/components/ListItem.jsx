@@ -13,6 +13,7 @@ function ListItem({ item, title, fillForm, eraseItem }) {
           onClick={() => {
             fillForm(item);
           }}
+          aria-label={`Modify ${title}`}
         >
           <FontAwesomeIcon icon={faPen}></FontAwesomeIcon>
         </button>
@@ -21,6 +22,7 @@ function ListItem({ item, title, fillForm, eraseItem }) {
           onClick={() => {
             eraseItem(item.id);
           }}
+          aria-label={`Delete ${title}`}
         >
           <FontAwesomeIcon icon={faTrash}></FontAwesomeIcon>
         </button>

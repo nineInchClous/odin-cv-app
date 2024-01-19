@@ -85,6 +85,7 @@ function ExperienceList({ listItems, setListItems }) {
           type="button"
           className="list-add-btn"
           onClick={() => setShowForm(true)}
+          aria-label="Add an experience item"
         >
           <FontAwesomeIcon icon={faPlus} />
           Add

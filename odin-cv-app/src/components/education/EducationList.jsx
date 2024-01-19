@@ -82,6 +82,7 @@ function EducationList({ listItems, setListItems }) {
           type="button"
           className="list-add-btn"
           onClick={() => setShowForm(true)}
+          aria-label="Add an education item"
         >
           <FontAwesomeIcon icon={faPlus} />
           Add

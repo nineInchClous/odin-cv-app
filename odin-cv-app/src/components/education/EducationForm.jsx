@@ -35,7 +35,7 @@ function EducationForm({ education, setEducation, updateList, resetStates }) {
         placeholder="Degree or field of study"
       />
       <TextInput
-        id="start-date"
+        id="start-date-education"
         name="Start date"
         value={education.startDate}
         setValue={(pStartDate) =>
@@ -45,7 +45,7 @@ function EducationForm({ education, setEducation, updateList, resetStates }) {
         placeholder="04/2018"
       />
       <TextInput
-        id="end-date"
+        id="end-date-education"
         name="End date"
         value={education.endDate}
         setValue={(pEndDate) =>
@@ -55,7 +55,7 @@ function EducationForm({ education, setEducation, updateList, resetStates }) {
         placeholder="02/2019 or present"
       />
       <TextInput
-        id="location"
+        id="location-education"
         name="Location"
         value={education.location}
         setValue={(pLocation) =>

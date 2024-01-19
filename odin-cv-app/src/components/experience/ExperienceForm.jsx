@@ -45,7 +45,7 @@ function ExperienceForm({
         placeholder="Software engineer"
       />
       <TextInput
-        id="start-date"
+        id="start-date-experience"
         name="Start date"
         value={experience.startDate}
         setValue={(pStartDate) =>
@@ -55,7 +55,7 @@ function ExperienceForm({
         placeholder="04/2018"
       />
       <TextInput
-        id="end-date"
+        id="end-date-experience"
         name="End date"
         value={experience.endDate}
         setValue={(pEndDate) =>
@@ -65,7 +65,7 @@ function ExperienceForm({
         placeholder="02/2019 or present"
       />
       <TextInput
-        id="location"
+        id="location-experience"
         name="Location"
         value={experience.location}
         setValue={(pLocation) =>
