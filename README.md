@@ -1,7 +1,7 @@
-# Odin Project assignement - Battleship
+# Odin Project assignement - CV App
 
 ## Useful links
-<a href="https://nineinchclous.github.io/odin-battleship/">Preview</a> <br>
+<a href="https://another-cv-generator.netlify.app/">Preview</a> <br>
 <a href="https://www.theodinproject.com/lessons/node-path-react-new-cv-application">The Odin Project assignement</a>
 
 ## What I learned
